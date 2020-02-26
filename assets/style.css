@@ -80,3 +80,7 @@ textarea{
 #last-container {
   border-block-end: 1px solid black;
 }
+
+.textbox {
+  width: 500px;
+}

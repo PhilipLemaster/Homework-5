@@ -19,6 +19,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="assets/style.css" />
+
     <title>Work Day Scheduler</title>
   </head>
 
@@ -29,124 +30,146 @@
       <p id="currentDay" class="lead"></p>
     </header>
     <div class="hour-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row1">
+          <div class="col-md-2">
               <span>9 AM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
     <div class="hour-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row2">
+          <div class="col-md-2">
               <span>10 AM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
     <div class="hour-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row3">
+          <div class="col-md-2">
               <span>11 AM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
     <div class="hour-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row4">
+          <div class="col-md-2">
               <span>12 PM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
     <div class="hour-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row5">
+          <div class="col-md-2">
               <span>1 PM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
     <div class="hour-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row6">
+          <div class="col-md-2">
               <span>2 PM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
     <div class="hour-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row7">
+          <div class="col-md-2">
               <span>3 PM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
     <div class="hour-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row8">
+          <div class="col-md-2">
               <span>4 PM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
     <div class="hour-container" id="last-container">
-      <div class="row">
-          <div class="col md-2">
+      <div class="row" id="row9">
+          <div class="col-md-2">
               <span>5 PM</span>
           </div>
-          <div class="col md-8">
+          <div class="col-md-8">
               <span class="textbox"></span>
           </div>
-          <div class="col md-2">
+          <div class="col-md-2">
             <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
-
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+    <script>
+      var now = moment().format('h');
+      var tODay= moment().format('a');
+      console.log(now);
+      console.log(tODay);
+      var timeDivs = document.getElementsByClassName('hour-container');
+      $(document).ready(function(){
+        for (x = 0; x < timeDivs.length; x++) {
+          if (tODay ==='pm')
+            now += 12
+          if (now === 12 && tODay === 'am')
+            now += 12
+          if (now === 12 && tODay === 'pm')
+            now = 12
+            
+          if ((now - 9) > x)
+            $(timeDivs[x]).css("background-color", "lightpink");
+            else
+            $(timeDivs[x]).css("background-color", "lightgreen");
+        }
+      })
+
+    </script>
   </body>
 </html>
