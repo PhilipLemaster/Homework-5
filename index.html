@@ -149,24 +149,23 @@
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
-      var now = moment().format('h');
+      var now = parseInt(moment().format('h'));
       var tODay= moment().format('a');
       console.log(now);
       console.log(tODay);
       var timeDivs = document.getElementsByClassName('hour-container');
       $(document).ready(function(){
+        if (tODay ==='pm' && now !== 12)
+            now += 12
+        if (now === 12 && tODay === 'am')
+            now += 12
         for (x = 0; x < timeDivs.length; x++) {
-          if (tODay ==='pm')
-            now += 12
-          if (now === 12 && tODay === 'am')
-            now += 12
-          if (now === 12 && tODay === 'pm')
-            now = 12
-            
           if ((now - 9) > x)
             $(timeDivs[x]).css("background-color", "lightpink");
-            else
+          else if ((now - 9) < x)
             $(timeDivs[x]).css("background-color", "lightgreen");
+          else
+            $(timeDivs[x]).css("background-color", "lightyellow");
         }
       })
 
