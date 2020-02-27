@@ -75,6 +75,7 @@ textarea{
   background-color: lightgrey;
   border: 1px solid black;
   border-block-end: none;
+  height: 100px;
 }
 
 #last-container {
@@ -83,4 +84,10 @@ textarea{
 
 .textbox {
   width: 500px;
+}
+
+#input1, #input2, #input3, #input4, #input5, #input6, #input7, #input8, #input9 {
+  background-color: transparent;
+  width: 80%;
+  height: 70px;
 }

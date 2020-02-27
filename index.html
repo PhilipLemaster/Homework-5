@@ -14,10 +14,7 @@
       integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
       crossorigin="anonymous"
     />
-    <link
-      href="https://fonts.googleapis.com/css?family=Open+Sans&display=swap"
-      rel="stylesheet"
-    />
+    
     <link rel="stylesheet" href="assets/style.css" />
 
     <title>Work Day Scheduler</title>
@@ -34,11 +31,11 @@
           <div class="col-md-2">
               <span>9 AM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox1">
+            <input type="" id="input1">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but1"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -47,11 +44,11 @@
           <div class="col-md-2">
               <span>10 AM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox2">
+            <input type="" id="input2">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but2"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -60,11 +57,11 @@
           <div class="col-md-2">
               <span>11 AM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox3">
+            <input type="" id="input3">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but3"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -73,11 +70,11 @@
           <div class="col-md-2">
               <span>12 PM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox4">
+            <input type="" id="input4">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but4"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -86,11 +83,11 @@
           <div class="col-md-2">
               <span>1 PM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox5">
+            <input type="" id="input5">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but5"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -99,11 +96,11 @@
           <div class="col-md-2">
               <span>2 PM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox6">
+            <input type="" id="input6">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but6"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -112,11 +109,11 @@
           <div class="col-md-2">
               <span>3 PM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox7">
+            <input type="" id="input7">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but7"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -125,11 +122,11 @@
           <div class="col-md-2">
               <span>4 PM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox8">
+            <input type="" id="input8">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but8"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -138,11 +135,11 @@
           <div class="col-md-2">
               <span>5 PM</span>
           </div>
-          <div class="col-md-8">
-              <span class="textbox"></span>
+          <div class="col-md-8" id="textbox9">
+            <input type="" id="input9">
           </div>
           <div class="col-md-2">
-            <button type="button" class="btn btn-info"><i class="fas fa-save"></i></button>
+            <button type="button" class="btn btn-info" id="but9"><i class="fas fa-save"></i></button>
           </div>
       </div>
     </div>
@@ -168,7 +165,56 @@
             $(timeDivs[x]).css("background-color", "lightyellow");
         }
       })
+      
+      let textbox = document.getElementsByClassName('col-md-8');
+      let input1 = document.getElementById('input1');
+      let but1 = document.getElementById('but1');
 
+      input1.value = localStorage.getItem('Text 1')      
+      but1.addEventListener('click', function(e){
+        localStorage.setItem('Text 1', input1.value)
+      })
+
+      input2.value = localStorage.getItem('Text 2')      
+      but2.addEventListener('click', function(e){
+        localStorage.setItem('Text 2', input2.value)
+      })
+
+      input3.value = localStorage.getItem('Text 3')      
+      but3.addEventListener('click', function(e){
+        localStorage.setItem('Text 3', input3.value)
+      })
+
+      input4.value = localStorage.getItem('Text 4')      
+      but4.addEventListener('click', function(e){
+        localStorage.setItem('Text 4', input4.value)
+      })
+      
+      input5.value = localStorage.getItem('Text 5')      
+      but5.addEventListener('click', function(e){
+        localStorage.setItem('Text 5', input5.value)
+      })
+      
+      input6.value = localStorage.getItem('Text 6')      
+      but6.addEventListener('click', function(e){
+        localStorage.setItem('Text 6', input6.value)
+      })
+      
+      input7.value = localStorage.getItem('Text 7')      
+      but7.addEventListener('click', function(e){
+        localStorage.setItem('Text 7', input7.value)
+      })
+      
+      input8.value = localStorage.getItem('Text 8')      
+      but8.addEventListener('click', function(e){
+        localStorage.setItem('Text 8', input8.value)
+      })
+
+      input9.value = localStorage.getItem('Text 9')      
+      but9.addEventListener('click', function(e){
+        localStorage.setItem('Text 9', input9.value)
+      })
+      
     </script>
   </body>
 </html>
